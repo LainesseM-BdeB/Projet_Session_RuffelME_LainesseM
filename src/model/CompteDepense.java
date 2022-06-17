@@ -53,4 +53,14 @@ public class CompteDepense implements Comparable {
             return 1;
         }
     }
+
+    @Override
+    public String toString() {
+        return "CompteDepense{" +
+                "fraisDeplacement=" + fraisDeplacement +
+                ", fraisRepas=" + fraisRepas +
+                ", fraisHebergement=" + fraisHebergement +
+                ", dateFrais=" + dateFrais +
+                '}';
+    }
 }

@@ -1,0 +1,8 @@
+{
+    "name": "src",
+    "version": "1.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "prettier": "^2.7.1"
+    }
+}
