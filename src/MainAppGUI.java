@@ -210,9 +210,8 @@ public class MainAppGUI extends javax.swing.JFrame {
         txtRedFood.setForeground(new java.awt.Color(204, 0, 0));
         txtRedFood.setMinimumSize(new java.awt.Dimension(108, 50));
 
-        txtDate.setFont(new java.awt.Font("Sitka Small", 0, 18)); // NOI18N
-        txtDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDate.setText("Entrer Date");
+        txtDate.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        txtDate.setText("YYYY-MM-DD");
         txtDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateActionPerformed(evt);
