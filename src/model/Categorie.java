@@ -16,6 +16,26 @@ public class Categorie {
         this.droitAvion = droitAvion;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public Double getMontantMaxBouffe() {
+        return montantMaxBouffe;
+    }
+
+    public Double getMontant2() {
+        return montant2;
+    }
+
+    public Double getMontant3() {
+        return montant3;
+    }
+
+    public Boolean getDroitAvion() {
+        return droitAvion;
+    }
+
     @Override
     public String toString() {
         return "Categorie{" +

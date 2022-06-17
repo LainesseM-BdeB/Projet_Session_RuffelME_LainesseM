@@ -35,6 +35,9 @@ public class SaveEmploye {
             bw.write("\"id\": \"" + e.getId() + "\",");
             bw.newLine();
             bw.write("      ");
+            bw.write("\"categorie\": \"" + e.getCategorie().getType() + "\",");
+            bw.newLine();
+            bw.write("      ");
             bw.write("\"comptedepenses\": [");
             bw.newLine();
 

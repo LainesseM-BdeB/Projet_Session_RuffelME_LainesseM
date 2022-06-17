@@ -25,7 +25,7 @@ public class Main {
         categories.put("Senior", catSenior);
         categories.put("Super", catSuper);
 
-        HashMap<Integer, Employe> employes = new HashMap<Integer, Employe>();
+        HashMap<Integer, Employe> employes = new HashMap<>();
 
 
         //TEST AREA vvvvv
@@ -35,8 +35,8 @@ public class Main {
         Frais frais1 = new Frais(compte1);
         Frais frais2 = new Frais(compte3);
         frais1.getFrais().add(compte1);
-        Employe emp1 = new Employe(1, frais1);
-        Employe emp2 = new Employe(2, frais2);
+        Employe emp1 = new Employe(1, categories.get("Super"), frais1);
+        Employe emp2 = new Employe(2, categories.get("Junior"), frais2);
         emp1.getFrais().getFrais().add(compte2);
         employes.put(emp1.getId(), emp1);
         employes.put(emp2.getId(), emp2);
