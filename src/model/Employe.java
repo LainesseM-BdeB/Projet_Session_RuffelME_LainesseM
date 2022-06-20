@@ -1,15 +1,18 @@
 package model;
 
+import java.util.TreeSet;
+
 public class Employe {
 
-    private int id;
-    private Categorie categorie;
-    private Frais frais;
+    private final int id;
+    private final Categorie categorie;
+    private final TreeSet<CompteDepense> compteDepenses;
 
-    public Employe(int id, Categorie categorie, Frais frais) {
+    public Employe(int id, Categorie categorie, CompteDepense compteDepense) {
         this.id = id;
         this.categorie = categorie;
-        this.frais = frais;
+        this.compteDepenses = new TreeSet<>();
+        this.compteDepenses.add(compteDepense);
     }
 
     public int getId() {
@@ -20,16 +23,7 @@ public class Employe {
         return categorie;
     }
 
-    public Frais getFrais() {
-        return frais;
-    }
-
-    @Override
-    public String toString() {
-        return "Employe{" +
-                "id=" + id +
-                ", categorie=" + categorie +
-                ", frais=" + frais +
-                '}';
+    public TreeSet<CompteDepense> getCompteDepenses() {
+        return compteDepenses;
     }
 }

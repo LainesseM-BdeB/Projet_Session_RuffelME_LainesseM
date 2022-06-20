@@ -4,15 +4,15 @@ public class Categorie {
 
     String type; //Junior, Senior, Super
     Double montantMaxBouffe;
-    Double montant2;
-    Double montant3;
+    Double montantMaxDeplacement;
+    Double montantMaxHebergement;
     Boolean droitAvion;
 
     public Categorie(String type, Double montantMaxBouffe, Double montant2, Double montant3, Boolean droitAvion) {
         this.type = type;
         this.montantMaxBouffe = montantMaxBouffe;
-        this.montant2 = montant2;
-        this.montant3 = montant3;
+        this.montantMaxDeplacement = montant2;
+        this.montantMaxHebergement = montant3;
         this.droitAvion = droitAvion;
     }
 
@@ -24,12 +24,12 @@ public class Categorie {
         return montantMaxBouffe;
     }
 
-    public Double getMontant2() {
-        return montant2;
+    public Double getMontantMaxDeplacement() {
+        return montantMaxDeplacement;
     }
 
-    public Double getMontant3() {
-        return montant3;
+    public Double getMontantMaxHebergement() {
+        return montantMaxHebergement;
     }
 
     public Boolean getDroitAvion() {
@@ -41,8 +41,8 @@ public class Categorie {
         return "Categorie{" +
                 "type='" + type + '\'' +
                 ", montantMaxBouffe=" + montantMaxBouffe +
-                ", montant2=" + montant2 +
-                ", montant3=" + montant3 +
+                ", montant2=" + montantMaxDeplacement +
+                ", montant3=" + montantMaxHebergement +
                 ", droitAvion=" + droitAvion +
                 '}';
     }

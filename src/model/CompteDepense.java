@@ -5,16 +5,18 @@ import java.util.Comparator;
 
 public class CompteDepense implements Comparable {
 
-    private double fraisDeplacement;
-    private double fraisRepas;
-    private double fraisHebergement;
-    private LocalDate dateFrais;
+    private final double fraisDeplacement;
+    private final double fraisRepas;
+    private final double fraisHebergement;
+    private final LocalDate dateFrais;
+    private final boolean isAvion;
 
-    public CompteDepense(double fraisDeplacement, double fraisRepas, double fraisHebergement, LocalDate dateFrais) {
+    public CompteDepense(double fraisDeplacement, Boolean avion, double fraisRepas, double fraisHebergement, LocalDate dateFrais) {
         this.fraisDeplacement = fraisDeplacement;
         this.fraisRepas = fraisRepas;
         this.fraisHebergement = fraisHebergement;
         this.dateFrais = dateFrais;
+        this.isAvion = avion;
     }
 
     public double getFraisDeplacement() {
@@ -31,6 +33,10 @@ public class CompteDepense implements Comparable {
 
     public LocalDate getDateFrais() {
         return dateFrais;
+    }
+
+    public boolean isAvion() {
+        return isAvion;
     }
 
     @Override

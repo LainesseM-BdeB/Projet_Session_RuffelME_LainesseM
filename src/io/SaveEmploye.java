@@ -6,13 +6,12 @@ import model.Employe;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SaveEmploye {
 
     public static void save(HashMap<Integer, Employe> employes) throws IOException {
-        FileWriter fw = new FileWriter("./src/ressources/data/output.json");
+        FileWriter fw = new FileWriter("./src/ressources/data/employes.json");
         BufferedWriter bw = new BufferedWriter(fw);
 
         bw.write("{");
@@ -43,7 +42,7 @@ public class SaveEmploye {
 
             boolean firstCD = true;
 
-            for (CompteDepense cd : e.getFrais().getFrais()) {
+            for (CompteDepense cd : e.getCompteDepenses()) {
                 if (!firstCD) {
                     bw.write(",");
                     bw.newLine();
