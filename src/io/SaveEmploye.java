@@ -60,6 +60,9 @@ public class SaveEmploye {
                 bw.write("\"fraisdeplacement\": \"" + cd.getFraisDeplacement() + "\",");
                 bw.newLine();
                 bw.write("          ");
+                bw.write("\"isAvion\": \"" + cd.isAvion() + "\",");
+                bw.newLine();
+                bw.write("          ");
                 bw.write("\"fraishebergement\": \"" + cd.getFraisHebergement() + "\"");
                 bw.newLine();
                 bw.write("        ");

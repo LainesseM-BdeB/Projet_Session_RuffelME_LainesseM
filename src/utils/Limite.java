@@ -10,7 +10,7 @@ public class Limite {
         if (isAvion) {
             double total = 0.0;
             for (CompteDepense ecompte : emp.getCompteDepenses()) {
-                if (ecompte.getDateFrais().getMonth() == compte.getDateFrais().getMonth()) {
+                if (ecompte.getDateFrais().getMonth() == compte.getDateFrais().getMonth() && ecompte.isAvion()) {
                     total += ecompte.getFraisDeplacement();
                 }
             };
@@ -33,5 +33,6 @@ public class Limite {
     public static boolean estDepasseNourriture(Categorie cat, Double montant) {
         return cat.getMontantMaxBouffe() < montant;
     }
+
 
 }
