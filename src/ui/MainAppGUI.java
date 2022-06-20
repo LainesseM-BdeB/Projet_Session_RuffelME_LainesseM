@@ -4,6 +4,18 @@
  */
 package ui;
 
+import io.SaveEmploye;
+import model.*;
+import utils.Limite;
+
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+
 /**
  *
  * @author Marc-Étienne Ruffel
@@ -15,6 +27,30 @@ public class MainAppGUI extends javax.swing.JFrame {
      */
     public MainAppGUI() {
         initComponents();
+        Categorie catJunior = new Categorie("Junior", 25.0, 50.0, 1200.0, false);
+        Categorie catSenior = new Categorie("Senior", 40.0, 80.0, 1600.0, false);
+        Categorie catSuper = new Categorie("Super", 60.0, 150.0, 3000.0, true);
+
+        Categories.addCategories(catJunior);
+        Categories.addCategories(catSenior);
+        Categories.addCategories(catSuper);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                try {
+                    SaveEmploye.save(Employes.getEmployes());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                super.windowClosed(e);
+            }
+        });
     }
 
     /**
@@ -205,6 +241,54 @@ public class MainAppGUI extends javax.swing.JFrame {
 
         btnSend.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         btnSend.setText("Ajouter Facture");
+        btnSend.addActionListener(e -> {
+            CompteDepense cd = new CompteDepense(
+                    Double.parseDouble(txtTravelDep.getText()),
+                    false,
+                    Double.parseDouble(txtDepFood.getText()),
+                    Double.parseDouble(txtSleepDep.getText()),
+                    LocalDate.parse(txtDate.getText(), DateTimeFormatter.ISO_LOCAL_DATE)
+            );
+
+            String categorie;
+
+            if (chkJunior.isSelected()) {
+                categorie = "Junior";
+            } else if (chkSenior.isSelected()) {
+                categorie = "Senior";
+            } else if (chkSuper.isSelected()) {
+                categorie = "Super";
+            } else {
+                JOptionPane.showMessageDialog(null, "Erreur - Sélectioner une catégorie.");
+                return;
+            }
+
+
+            if (Employes.checkEmploye(Integer.parseInt(txtID.getText()))) {
+                Employe tempEmp = Employes.getEmploye(Integer.parseInt(txtID.getText()));
+
+                if (Limite.estDepasseNourriture(tempEmp.getCategorie(), cd.getFraisRepas())) {
+                    JOptionPane.showMessageDialog(null, "Erreur - Limite repas dépassée.");
+                    return;
+                } else if (Limite.estDepasseHebergement(tempEmp, tempEmp.getCategorie(), cd, cd.getFraisHebergement())) {
+                    JOptionPane.showMessageDialog(null, "Erreur - Limite hébergement dépassée.");
+                    return;
+                } else if (Limite.estDepasseDeplacement(tempEmp, tempEmp.getCategorie(), cd, false)) {
+                    JOptionPane.showMessageDialog(null, "Erreur - Limite déplacement dépassée.");
+                    return;
+                }
+
+                tempEmp.addCompteDepense(cd);
+
+            } else {
+                Employes.addEmploye(new Employe(
+                        Integer.parseInt(txtID.getText()),
+                        Categories.getCategorie(categorie)
+                ));
+                Employes.getEmploye(Integer.parseInt(txtID.getText())).addCompteDepense(cd);
+            }
+            System.out.println(cd);
+        });
 
         txtRedFood.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
         txtRedFood.setForeground(new java.awt.Color(204, 0, 0));
@@ -402,6 +486,8 @@ public class MainAppGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainAppGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+
+        //Init pour Categories et ListeEmp
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

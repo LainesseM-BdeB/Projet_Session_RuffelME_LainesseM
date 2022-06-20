@@ -8,11 +8,11 @@ public class Categorie {
     Double montantMaxHebergement;
     Boolean droitAvion;
 
-    public Categorie(String type, Double montantMaxBouffe, Double montant2, Double montant3, Boolean droitAvion) {
+    public Categorie(String type, Double montantMaxBouffe, Double montantMaxDeplacement, Double montantMaxHebergement, Boolean droitAvion) {
         this.type = type;
         this.montantMaxBouffe = montantMaxBouffe;
-        this.montantMaxDeplacement = montant2;
-        this.montantMaxHebergement = montant3;
+        this.montantMaxDeplacement = montantMaxDeplacement;
+        this.montantMaxHebergement = montantMaxHebergement;
         this.droitAvion = droitAvion;
     }
 

@@ -67,6 +67,7 @@ public class CompteDepense implements Comparable {
                 ", fraisRepas=" + fraisRepas +
                 ", fraisHebergement=" + fraisHebergement +
                 ", dateFrais=" + dateFrais +
+                ", isAvion=" + isAvion +
                 '}';
     }
 }

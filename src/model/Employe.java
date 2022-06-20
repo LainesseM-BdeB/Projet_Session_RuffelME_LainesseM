@@ -8,11 +8,10 @@ public class Employe {
     private final Categorie categorie;
     private final TreeSet<CompteDepense> compteDepenses;
 
-    public Employe(int id, Categorie categorie, CompteDepense compteDepense) {
+    public Employe(int id, Categorie categorie) {
         this.id = id;
         this.categorie = categorie;
         this.compteDepenses = new TreeSet<>();
-        this.compteDepenses.add(compteDepense);
     }
 
     public int getId() {
@@ -25,5 +24,9 @@ public class Employe {
 
     public TreeSet<CompteDepense> getCompteDepenses() {
         return compteDepenses;
+    }
+
+    public void addCompteDepense(CompteDepense cd) {
+        this.compteDepenses.add(cd);
     }
 }
