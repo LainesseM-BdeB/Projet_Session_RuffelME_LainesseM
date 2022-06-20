@@ -106,6 +106,7 @@ public class MainAppGUI extends javax.swing.JFrame {
 
         txtTravelDep.setColumns(20);
         txtTravelDep.setRows(5);
+        txtTravelDep.setMinimumSize(new java.awt.Dimension(234, 20));
         jScrollPane2.setViewportView(txtTravelDep);
 
         txtSleepDep.setColumns(20);
@@ -155,6 +156,8 @@ public class MainAppGUI extends javax.swing.JFrame {
 
         txtTravelTot.setColumns(20);
         txtTravelTot.setRows(5);
+        txtTravelTot.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTravelTot.setMaximumSize(new java.awt.Dimension(234, 2147483647));
         jScrollPane4.setViewportView(txtTravelTot);
 
         txtSleepTot.setColumns(20);
@@ -170,6 +173,7 @@ public class MainAppGUI extends javax.swing.JFrame {
 
         txtRestTravel.setColumns(20);
         txtRestTravel.setRows(5);
+        txtRestTravel.setMinimumSize(new java.awt.Dimension(234, 20));
         jScrollPane7.setViewportView(txtRestTravel);
 
         txtSleepRest.setColumns(20);
@@ -181,6 +185,7 @@ public class MainAppGUI extends javax.swing.JFrame {
 
         txtRestFood.setColumns(20);
         txtRestFood.setRows(5);
+        txtRestFood.setMinimumSize(new java.awt.Dimension(234, 20));
         jScrollPane9.setViewportView(txtRestFood);
 
         jLabel9.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
