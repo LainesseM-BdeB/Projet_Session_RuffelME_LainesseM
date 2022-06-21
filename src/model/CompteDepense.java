@@ -10,6 +10,9 @@ public class CompteDepense implements Comparable {
     private final double fraisHebergement;
     private final LocalDate dateFrais;
     private final boolean isAvion;
+    private double remboursementDeplacement;
+    private double remboursementRepas;
+    private double remboursementHebergement;
 
     public CompteDepense(double fraisDeplacement, Boolean avion, double fraisRepas, double fraisHebergement, LocalDate dateFrais) {
         this.fraisDeplacement = fraisDeplacement;
@@ -37,6 +40,30 @@ public class CompteDepense implements Comparable {
 
     public boolean isAvion() {
         return isAvion;
+    }
+
+    public double getRemboursementDeplacement() {
+        return remboursementDeplacement;
+    }
+
+    public void setRemboursementDeplacement(double remboursementDeplacement) {
+        this.remboursementDeplacement = remboursementDeplacement;
+    }
+
+    public double getRemboursementRepas() {
+        return remboursementRepas;
+    }
+
+    public void setRemboursementRepas(double remboursementRepas) {
+        this.remboursementRepas = remboursementRepas;
+    }
+
+    public double getRemboursementHebergement() {
+        return remboursementHebergement;
+    }
+
+    public void setRemboursementHebergement(double remboursementHebergement) {
+        this.remboursementHebergement = remboursementHebergement;
     }
 
     @Override
